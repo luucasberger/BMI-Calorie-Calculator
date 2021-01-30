@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E95FBB2225C47FD5003603D4 /* BMICalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FBB2125C47FD5003603D4 /* BMICalculator.swift */; };
+		E95FBB2525C47FE2003603D4 /* CaloriesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FBB2425C47FE2003603D4 /* CaloriesCalculator.swift */; };
 		E96F939625C08E2F009FE376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F939525C08E2F009FE376 /* AppDelegate.swift */; };
 		E96F939825C08E2F009FE376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F939725C08E2F009FE376 /* SceneDelegate.swift */; };
-		E96F939A25C08E2F009FE376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F939925C08E2F009FE376 /* ViewController.swift */; };
 		E96F939D25C08E2F009FE376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F939B25C08E2F009FE376 /* Main.storyboard */; };
 		E96F939F25C08E30009FE376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F939E25C08E30009FE376 /* Assets.xcassets */; };
 		E96F93A225C08E30009FE376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F93A025C08E30009FE376 /* LaunchScreen.storyboard */; };
+		E96F93AF25C0924B009FE376 /* Inicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F93AE25C0924B009FE376 /* Inicio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E95FBB2125C47FD5003603D4 /* BMICalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculator.swift; sourceTree = "<group>"; };
+		E95FBB2425C47FE2003603D4 /* CaloriesCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCalculator.swift; sourceTree = "<group>"; };
 		E96F939225C08E2F009FE376 /* BMI-Calorie-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI-Calorie-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96F939525C08E2F009FE376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96F939725C08E2F009FE376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E96F939925C08E2F009FE376 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E96F939C25C08E2F009FE376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E96F939E25C08E30009FE376 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96F93A125C08E30009FE376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F93A325C08E30009FE376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E96F93AE25C0924B009FE376 /* Inicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inicio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,39 @@
 			children = (
 				E96F939525C08E2F009FE376 /* AppDelegate.swift */,
 				E96F939725C08E2F009FE376 /* SceneDelegate.swift */,
-				E96F939925C08E2F009FE376 /* ViewController.swift */,
-				E96F939B25C08E2F009FE376 /* Main.storyboard */,
+				E96F93AC25C09151009FE376 /* Model */,
+				E96F93AB25C09145009FE376 /* Screens */,
+				E96F93AA25C0913D009FE376 /* Storyboards */,
 				E96F939E25C08E30009FE376 /* Assets.xcassets */,
 				E96F93A025C08E30009FE376 /* LaunchScreen.storyboard */,
 				E96F93A325C08E30009FE376 /* Info.plist */,
 			);
 			path = "BMI-Calorie-Calculator";
+			sourceTree = "<group>";
+		};
+		E96F93AA25C0913D009FE376 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E96F939B25C08E2F009FE376 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E96F93AB25C09145009FE376 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E96F93AE25C0924B009FE376 /* Inicio.swift */,
+				E95FBB2125C47FD5003603D4 /* BMICalculator.swift */,
+				E95FBB2425C47FE2003603D4 /* CaloriesCalculator.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E96F93AC25C09151009FE376 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96F939A25C08E2F009FE376 /* ViewController.swift in Sources */,
+				E95FBB2225C47FD5003603D4 /* BMICalculator.swift in Sources */,
 				E96F939625C08E2F009FE376 /* AppDelegate.swift in Sources */,
 				E96F939825C08E2F009FE376 /* SceneDelegate.swift in Sources */,
+				E95FBB2525C47FE2003603D4 /* CaloriesCalculator.swift in Sources */,
+				E96F93AF25C0924B009FE376 /* Inicio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
