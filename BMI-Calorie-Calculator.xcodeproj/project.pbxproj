@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E95FBB2225C47FD5003603D4 /* BMICalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FBB2125C47FD5003603D4 /* BMICalculator.swift */; };
 		E95FBB2525C47FE2003603D4 /* CaloriesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FBB2425C47FE2003603D4 /* CaloriesCalculator.swift */; };
+		E96678C325C895AD00413BCC /* Lastica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E96678C225C895AD00413BCC /* Lastica.ttf */; };
 		E96F939625C08E2F009FE376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F939525C08E2F009FE376 /* AppDelegate.swift */; };
 		E96F939825C08E2F009FE376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F939725C08E2F009FE376 /* SceneDelegate.swift */; };
 		E96F939D25C08E2F009FE376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F939B25C08E2F009FE376 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		E95FBB2125C47FD5003603D4 /* BMICalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculator.swift; sourceTree = "<group>"; };
 		E95FBB2425C47FE2003603D4 /* CaloriesCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCalculator.swift; sourceTree = "<group>"; };
+		E96678C225C895AD00413BCC /* Lastica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lastica.ttf; sourceTree = "<group>"; };
 		E96F939225C08E2F009FE376 /* BMI-Calorie-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI-Calorie-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96F939525C08E2F009FE376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96F939725C08E2F009FE376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E96678C125C8948A00413BCC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E96678C225C895AD00413BCC /* Lastica.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E96F938925C08E2F009FE376 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		E96F939425C08E2F009FE376 /* BMI-Calorie-Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E96678C125C8948A00413BCC /* Fonts */,
 				E96F939525C08E2F009FE376 /* AppDelegate.swift */,
 				E96F939725C08E2F009FE376 /* SceneDelegate.swift */,
 				E96F93AC25C09151009FE376 /* Model */,
@@ -157,6 +168,7 @@
 				E96F93A225C08E30009FE376 /* LaunchScreen.storyboard in Resources */,
 				E96F939F25C08E30009FE376 /* Assets.xcassets in Resources */,
 				E96F939D25C08E2F009FE376 /* Main.storyboard in Resources */,
+				E96678C325C895AD00413BCC /* Lastica.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
