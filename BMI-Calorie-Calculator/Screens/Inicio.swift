@@ -16,7 +16,7 @@ class Inicio: UIViewController {
                 
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1770251393, green: 0.2089989185, blue: 0.2513588071, alpha: 1)
-        navigationItem.title = "BMI-Calorie Calculator"
+        navigationItem.title = "Fitness Calculator"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 23.0)!, .foregroundColor: UIColorFromRGB(rgbValue: 0x00adb5)]
     }
     
