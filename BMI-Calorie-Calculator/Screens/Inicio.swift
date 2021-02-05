@@ -15,31 +15,23 @@ class Inicio: UIViewController {
         super.viewDidLoad()
                 
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1770251393, green: 0.2089989185, blue: 0.2513588071, alpha: 1)
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.9274820685, blue: 0.8697011471, alpha: 1)
         navigationItem.title = "Fitness Calculator"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 23.0)!, .foregroundColor: UIColorFromRGB(rgbValue: 0x00adb5)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Lastica", size: 20.0)!, .foregroundColor: PublicFunctions.UIColorFromRGB(rgbValue: 0x000000)]
+        print("Loaded")
     }
     
-    /*
-     Function to set navigationBar title color as RGB.
-     Reason of creation: cannot put 'ColorLiteral'.
-     */
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
+    override func viewWillAppear(_ animated: Bool) {
+        // navigationBar title size turned back '20.0'.
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Lastica", size: 20.0)!, .foregroundColor: PublicFunctions.UIColorFromRGB(rgbValue: 0x000000)]
     }
     
-    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "BmiToCalculator") {
-            let backItem = UIBarButtonItem()
-            backItem.title = "Something Else"
-            navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        navigationItem.backButtonTitle = ""
+        // Reduced navigationBar title size to '19.0', so that it fits on every iPhone Screen.
+        if (segue.identifier == "CaloriesToCalculator") {
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Lastica", size: 19.0)!, .foregroundColor: PublicFunctions.UIColorFromRGB(rgbValue: 0x000000)]
         }
-    } */
+    }
     
 }
