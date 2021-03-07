@@ -12,6 +12,9 @@ class CaloriesCalculator: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide Keyboard when Taped around
+        hideKeyboardWhenTappedAround()
+        
         navigationItem.title = "Calories Calculator"
     }
     

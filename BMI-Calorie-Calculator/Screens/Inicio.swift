@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HideKeyboardWhenTappedAround
 
 class Inicio: UIViewController {
     @IBOutlet weak var bmiButton: UIButton!
