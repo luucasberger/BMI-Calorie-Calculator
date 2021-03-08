@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BMICalculator: UIViewController {
+class BMICalculator: UIViewController, UITextFieldDelegate {
     @IBOutlet var bmiResult: UILabel!
     @IBOutlet var imperialUnitButton: UIButton!
     @IBOutlet var metricUnitButton: UIButton!
@@ -16,6 +16,7 @@ class BMICalculator: UIViewController {
     @IBOutlet var weightInputKg: UITextField!
     @IBOutlet var weightInputLb: UITextField!
     var metricUnitIsSelected = false
+    var data = BMIDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class BMICalculator: UIViewController {
         
         
         heightInput1.delegate = self
+        heightInput2.delegate = self
+        weightInputLb.delegate = self
         weightInputKg.delegate = self
         
         setupUIViewController()
@@ -63,8 +66,6 @@ class BMICalculator: UIViewController {
     }
     
     @IBAction func metricUnitPressed(_ sender: UIButton, forEvent event: UIEvent) {
-        
-        
         if (!metricUnitIsSelected) {
             metricUnitButton.backgroundColor = PublicFunctions.UIColorFromRGB(rgbValue: K.orange)
             metricUnitButton.setTitleColor(.white, for: .normal)
@@ -125,36 +126,21 @@ class BMICalculator: UIViewController {
                 let height = Double(heightInput1.text!)! / 100
                 let weight = Double(weightInputKg.text!)!
                 
-                let bmi = (weight / (height * height))
+                let bmi = data.calculateBMI(height: height, weight: weight)
                 
-                bmiResult.text = "\(Double(round(bmi*10))/10)    "
+                bmiResult.text = "\(bmi)    "
             } else {
-                // create the alert
-                let alert = UIAlertController(title: "Not Valid Inputs", message: "Please check if your inputs were written correctly.", preferredStyle: UIAlertController.Style.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
+                PublicFunctions.showAlert(in: self)
             }
         } else {
             if inputsAreValid(inputsToCheck: "Imperial") {
-                let height = convertFeetToMeters(feet: Double(heightInput1.text!)!, inches: Double(heightInput2.text!)!)
-                let weight = convertLbToKg(weight: Double(weightInputLb.text!)!)
-                print("\(height)")
-                let bmi = (weight / (height * height))
+                let height = PublicFunctions.convertFeetToMeters(feet: Double(heightInput1.text!)!, inches: Double(heightInput2.text!)!)
+                let weight = PublicFunctions.convertLbToKg(weight: Double(weightInputLb.text!)!)
+                let bmi = data.calculateBMI(height: height, weight: weight)
                 
-                bmiResult.text = "\(Double(round(bmi*10))/10)    "
+                bmiResult.text = "\(bmi)    "
             } else {
-                // create the alert
-                let alert = UIAlertController(title: "Not Valid Inputs", message: "Please check if your inputs were written correctly.", preferredStyle: UIAlertController.Style.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
+                PublicFunctions.showAlert(in: self)
             }
         }
     }
@@ -166,20 +152,6 @@ class BMICalculator: UIViewController {
         hideKeyboard()
         
         resetData()
-    }
-    
-    func convertFeetToMeters(feet: Double, inches: Double) -> Double {
-        var heightCm = (Double(Int(feet)) * 0.3048) + (inches * 0.0254)
-        heightCm = Double(round(1000*heightCm)/1000)
-        
-        return heightCm
-    }
-    
-    func convertLbToKg(weight: Double) -> Double {
-        var weightKg = weight * 0.45359237
-        weightKg = Double(round(10*weightKg)/10)
-        
-        return weightKg
     }
     
     func inputsAreValid(inputsToCheck: String) -> Bool {
@@ -203,11 +175,6 @@ class BMICalculator: UIViewController {
         }
         return res
     }
-    
-    
-}
-
-extension BMICalculator: UITextFieldDelegate {
     
     
 }
