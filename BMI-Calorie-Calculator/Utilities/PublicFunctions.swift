@@ -46,4 +46,8 @@ class PublicFunctions {
         
         return weightKg
     }
+    
+    static func replaceComaWithDot(in text: String) -> String {
+        text.replacingOccurrences(of: ",", with: ".")
+    }
 }

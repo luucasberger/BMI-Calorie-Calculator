@@ -20,6 +20,7 @@ class Inicio: UIViewController {
         navigationItem.title = "Fitness Calculator"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Lastica", size: 20.0)!, .foregroundColor: PublicFunctions.UIColorFromRGB(rgbValue: 0x000000)]
         print("Loaded")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,5 +35,5 @@ class Inicio: UIViewController {
             navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Lastica", size: 19.0)!, .foregroundColor: PublicFunctions.UIColorFromRGB(rgbValue: 0x000000)]
         }
     }
-    
+
 }

@@ -123,8 +123,14 @@ class BMICalculator: UIViewController, UITextFieldDelegate {
         
         if metricUnitIsSelected {
             if inputsAreValid(inputsToCheck: "Metric") {
-                let height = Double(heightInput1.text!)! / 100
-                let weight = Double(weightInputKg.text!)!
+                let heightString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputKg.text!)
+                
+                /*
+                 'height' is in cm, I need it in meters -> (height / 100)
+                 */
+                let height = Double(heightString)! / 100
+                let weight = Double(weightString)!
                 
                 let bmi = data.calculateBMI(height: height, weight: weight)
                 
@@ -134,8 +140,13 @@ class BMICalculator: UIViewController, UITextFieldDelegate {
             }
         } else {
             if inputsAreValid(inputsToCheck: "Imperial") {
-                let height = PublicFunctions.convertFeetToMeters(feet: Double(heightInput1.text!)!, inches: Double(heightInput2.text!)!)
-                let weight = PublicFunctions.convertLbToKg(weight: Double(weightInputLb.text!)!)
+                let feetString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let inchesString = PublicFunctions.replaceComaWithDot(in: heightInput2.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputLb.text!)
+                
+                let height = PublicFunctions.convertFeetToMeters(feet: Double(feetString)!, inches: Double(inchesString)!)
+                let weight = PublicFunctions.convertLbToKg(weight: Double(weightString)!)
+                
                 let bmi = data.calculateBMI(height: height, weight: weight)
                 
                 bmiResult.text = "\(bmi)    "
@@ -159,22 +170,28 @@ class BMICalculator: UIViewController, UITextFieldDelegate {
         
         if inputsToCheck == "Metric" {
             if (heightInput1.text != "") && (weightInputKg.text != "") {
-                let heightCm = Double(heightInput1.text!)!
-                let weightKg = Double(weightInputKg.text!)!
+                let heightString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputKg.text!)
+                
+                let heightCm = Double(heightString)!
+                let weightKg = Double(weightString)!
                 
                 res = (heightCm > 0) && (weightKg > 0)
             }
         } else {
             if (heightInput1.text != "") && (heightInput2.text != "") && (weightInputLb.text != "") {
-                let feet = Double(heightInput1.text!)!
-                let inches = Double(heightInput2.text!)!
-                let weightLb = Double(weightInputLb.text!)!
+                let feetString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let inchesString = PublicFunctions.replaceComaWithDot(in: heightInput2.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputLb.text!)
+                
+                let feet = Double(feetString)!
+                let inches = Double(inchesString)!
+                let weightLb = Double(weightString)!
                 
                 res = (feet > 0) && (inches >= 0) && (weightLb > 0)
             }
         }
         return res
     }
-    
-    
+
 }

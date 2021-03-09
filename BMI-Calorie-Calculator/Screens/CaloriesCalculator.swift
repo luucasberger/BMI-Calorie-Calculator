@@ -20,7 +20,7 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
     @IBOutlet var caloriesResult: UILabel!
     
     var metricUnitIsSelected = false
-    var activityLevelsPicker = UIPickerView()
+    var activityLevelPicker = UIPickerView()
     var genderPicker = UIPickerView()
     var agePicker = UIPickerView()
     var data: CaloriesDataModel = CaloriesDataModel()
@@ -41,9 +41,9 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
         weightInputLb.delegate = self
         weightInputKg.delegate = self
         
-        activityLevelsPicker.delegate = self
-        activityLevelsPicker.dataSource = self
-        activityLevelInput.inputView = activityLevelsPicker
+        activityLevelPicker.delegate = self
+        activityLevelPicker.dataSource = self
+        activityLevelInput.inputView = activityLevelPicker
         
         agePicker.delegate = self
         agePicker.dataSource = self
@@ -92,6 +92,10 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
         genderInput.text = ""
         
         caloriesResult.text = "0 calories    "
+        
+        agePicker.selectRow(0, inComponent: 0, animated: true)
+        genderPicker.selectRow(0, inComponent: 0, animated: true)
+        activityLevelPicker.selectRow(0, inComponent: 0, animated: true)
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
@@ -99,8 +103,11 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
         
         if metricUnitIsSelected {
             if inputsAreValid(inputsToCheck: "Metric") {
-                let height = Double(heightInput1.text!)!
-                let weight = Double(weightInputKg.text!)!
+                let heightString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputKg.text!)
+                
+                let height = Double(heightString)!
+                let weight = Double(weightString)!
                 let age = Double(ageInput.text!)!
                 let gender = genderInput.text!
                 
@@ -111,8 +118,12 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
             }
         } else {
             if inputsAreValid(inputsToCheck: "Imperial") {
-                let height = PublicFunctions.convertFeetToMeters(feet: Double(heightInput1.text!)!, inches: Double(heightInput2.text!)!) * 100
-                let weight = PublicFunctions.convertLbToKg(weight: Double(weightInputLb.text!)!)
+                let feetString = heightInput1.text!.replacingOccurrences(of: ",", with: ".")
+                let inchesString = heightInput2.text!.replacingOccurrences(of: ",", with: ".")
+                let weightString = weightInputLb.text!.replacingOccurrences(of: ",", with: ".")
+                
+                let height = PublicFunctions.convertFeetToMeters(feet: Double(feetString)!, inches: Double(inchesString)!) * 100
+                let weight = PublicFunctions.convertLbToKg(weight: Double(weightString)!)
                 let age = Double(ageInput.text!)!
                 let gender = genderInput.text!
                 
@@ -189,16 +200,23 @@ class CaloriesCalculator: UIViewController, UITextFieldDelegate {
         
         if inputsToCheck == "Metric" {
             if (heightInput1.text != "") && (weightInputKg.text != "") && (ageInput.text != "") && (genderInput.text != "") && (activityLevelInput.text != "") {
-                let heightCm = Double(heightInput1.text!)!
-                let weightKg = Double(weightInputKg.text!)!
+                let heightString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputKg.text!)
+                
+                let heightCm = Double(heightString)!
+                let weightKg = Double(weightString)!
                 
                 res = (heightCm > 0) && (weightKg > 0)
             }
         } else {
             if (heightInput1.text != "") && (heightInput2.text != "") && (weightInputLb.text != "") && (ageInput.text != "") && (genderInput.text != "") && (activityLevelInput.text != "") {
-                let feet = Double(heightInput1.text!)!
-                let inches = Double(heightInput2.text!)!
-                let weightLb = Double(weightInputLb.text!)!
+                let feetString = PublicFunctions.replaceComaWithDot(in: heightInput1.text!)
+                let inchesString = PublicFunctions.replaceComaWithDot(in: heightInput2.text!)
+                let weightString = PublicFunctions.replaceComaWithDot(in: weightInputLb.text!)
+                
+                let feet = Double(feetString)!
+                let inches = Double(inchesString)!
+                let weightLb = Double(weightString)!
                 
                 res = (feet > 0) && (inches >= 0) && (weightLb > 0)
             }
@@ -218,7 +236,7 @@ extension CaloriesCalculator: UIPickerViewDelegate, UIPickerViewDataSource {
         var res: Int!
         
         switch pickerView {
-        case activityLevelsPicker:
+        case activityLevelPicker:
             res = data.exerciseLevels.count
         case agePicker:
             res = data.ages.count
@@ -233,7 +251,7 @@ extension CaloriesCalculator: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch pickerView {
-        case activityLevelsPicker:
+        case activityLevelPicker:
             activityLevelInput.text = data.exerciseLevels[row]
             
         case agePicker:
@@ -249,7 +267,7 @@ extension CaloriesCalculator: UIPickerViewDelegate, UIPickerViewDataSource {
         var res: String!
         
         switch pickerView {
-        case activityLevelsPicker:
+        case activityLevelPicker:
             res = data.exerciseLevels[row]
             multiplier = data.activityMultipliers[row]
         case agePicker:
@@ -271,7 +289,7 @@ extension CaloriesCalculator: UIPickerViewDelegate, UIPickerViewDataSource {
             pickerLabel?.textAlignment = .center
         }
         switch pickerView {
-        case activityLevelsPicker:
+        case activityLevelPicker:
             pickerLabel?.text = data.exerciseLevels[row]
             multiplier = data.activityMultipliers[row]
         case agePicker:
@@ -281,9 +299,8 @@ extension CaloriesCalculator: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             print("Error in displaying selected input (2)!")
         }
-        
-        //pickerLabel?.textColor = UIColor.blue
-        
+                
         return pickerLabel!
     }
+    
 }
