@@ -48,4 +48,4 @@ person.
 | Instagram | [instagram.com/luucasberger/](https://www.instagram.com/luucasberger/) |
 | Gmail | lucasberger2399@gmail.com |
 
-![Fitness Calculator Logo](https://github.com/luucasberger/BMI-Calorie-Calculator/blob/master/Documentation/Fitness%20Calculator.png)
+![Fitness Calculator Logo](https://github.com/luucasberger/Images/blob/main/Fitness%20Calculator/Fitness%20Calculator.png)
