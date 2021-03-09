@@ -1,8 +1,6 @@
 # Fitness Calculator
 ## _BMI & Calories Calculator_
 
-![Fitness Calculator Logo](https://github.com/LuMaBe/Mercado-Agro/blob/master/Documentation/agribusiness.png)
-
 Fitness Calculator is an app in which you can easily calculate your BMI (body mass index) and the number of calories for you to maintain your current weight.
 
 - We can work with both imperial and metric units of measures.
@@ -14,11 +12,9 @@ Fitness Calculator is an app in which you can easily calculate your BMI (body ma
 - The number of calories you need is calculated by using your height, weight, age,
  gender and your activity level.
 
-
-
 > I used very precise formulas to show you
 > the most exact result as possible.
-> <>
+
 > This formulas have been used by the most
 > trusted health & medical enterprises
 > around the globe.
@@ -51,3 +47,5 @@ person.
 | Twitter | [twitter.com/luucasberger](https://twitter.com/luucasberger) |
 | Instagram | [instagram.com/luucasberger/](https://www.instagram.com/luucasberger/) |
 | Gmail | lucasberger2399@gmail.com |
+
+![Fitness Calculator Logo](https://github.com/luucasberger/Images/blob/main/Fitness%20Calculator/Fitness%20Calculator.png)
